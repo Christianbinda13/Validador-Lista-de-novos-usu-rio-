@@ -6,7 +6,7 @@ class UsuarioTelefone:
         self._validar_plano()  # Valida se o plano informado é um dos planos válidos
 
     def _validar_plano(self):
-        planos_validos = ["Plano Essencial Fibra", "Plano Prata Fibra", "Plano Premium Fibra"]
+        planos_validos = ["Essencial Fibra", "Prata Fibra", "Premium Fibra"]
         if self._plano not in planos_validos:
             raise ValueError("Plano inválido. Os planos válidos são: 'Plano Essencial Fibra', 'Plano Prata Fibra', 'Plano Premium Fibra'.")
 
@@ -40,12 +40,17 @@ class UsuarioTelefone:
         self._plano = valor
         self._validar_plano()  # Revalidando o plano após alteração
 
-# Função para entrada e saída
+# Função para perguntar nome, telefone e plano ao usuário
+def obter_dados_usuario():
+    nome = input("Digite o seu nome: ").strip()
+    numero_telefone = input("Digite o número de telefone: ").strip()
+    plano = input("Escolha o seu plano (Plano Essencial Fibra, Plano Prata Fibra, Plano Premium Fibra): ").strip()
+    return nome, numero_telefone, plano
+
+# Função principal
 def main():
-    # Recebendo dados de entrada
-    nome = input().strip()
-    numero_telefone = input().strip()
-    plano = input().strip()
+    # Obtendo os dados do usuário
+    nome, numero_telefone, plano = obter_dados_usuario()
 
     # Criando o usuário
     try:
